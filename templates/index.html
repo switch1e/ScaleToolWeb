@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ScaleTool</title>
+</head>
+<body style="text-align: center">
+    <img src="../Images/scaleToolLogo.png" alt="ScaleTool" style="vertical-align:top"/>
+    <h1>Select your options:</h1><br>
+    <form action="/generate_image" method="POST">
+        <label for="option1">Tuning:</label>
+        <select id="option1" name="option1">
+            <option value="EADGBE">EADGBE</option>
+            <option value="DADGAD">DADGAD</option>
+            <option value="DADGBE">DADGBE</option>
+        </select>
+        <br>
+        <label for="option2">Key:</label>
+        <select id="option2" name="option2">
+            <option value="A">A Major/F# Minor</option>
+            <option value="A#">Bb Major/G Minor</option>
+            <option value="B">B Major/G# Minor</option>
+            <option value="C">C Major/A Minor</option>
+            <option value="C#">C# Major/A# Minor</option>
+            <option value="D">D Major/B Minor</option>
+            <option value="D#">Eb Major/C Minor</option>
+            <option value="E">E Major/C# Minor</option>
+            <option value="F">F Major/D Minor</option>
+            <option value="F#">Gb Major/D# Minor</option>
+            <option value="G">G Major/E Minor</option>
+            <option value="G#">Ab Major/F Minor</option>
+        </select>
+        <br>
+        <input type="submit" value="Generate Image">
+    </form>
+</body>
+</html>

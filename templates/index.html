@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ScaleTool</title>
+    <link rel="stylesheet" href="static\style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body style="text-align: center">
-    <img src="../Images/scaleToolLogo.png" alt="ScaleTool" style="vertical-align:top"/>
+<body style="text-align: center">    
+    <div class="logo-container">
+        <img src="static\scaleToolLogo.png" alt="ScaleTool" class="logo">
+    </div>
     <h1>Select your options:</h1><br>
     <form action="/generate_image" method="POST">
         <label for="string1">Tuning:</label>
@@ -114,5 +119,10 @@
         <br>
         <input type="submit" value="Generate Image">
     </form>
+    <div id="output-image">
+        {% if image_data %}
+            <img src="data:image/png;base64,{{ image_data }}" />
+        {% endif %}
+    </div>
 </body>
 </html>

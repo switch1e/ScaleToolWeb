@@ -1,6 +1,8 @@
 #Import necessary modules
 from flask import Flask, render_template, request, send_file
 from scaletool import *
+import base64
+import io
 
 app = Flask(__name__)
 
@@ -26,11 +28,14 @@ def generate_image():
 
 
     # image_path = f'Images/{tuning}_{key}maj.png'
-    image_path = f'Images/output.png'
-    output.save(image_path)
+    buffer = io.BytesIO()
+    output.save(buffer, format='PNG')
+
+    # Convert the image to a base64-encoded string
+    image_data = base64.b64encode(buffer.getvalue()).decode('utf-8')
     
-    # Return the image file
-    return send_file(image_path, mimetype='image/png')
+    # Render the index.html template with the image data
+    return render_template('index.html', image_data=image_data)
 
 
 # @app.route('/?tuning=<tuning>?key=<key>', methods=['POST'])

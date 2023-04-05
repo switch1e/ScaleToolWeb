@@ -1,4 +1,4 @@
-# 🎸Scale Tool Web🎸
+# 🎸ScaleTool Web🎸
 
 This application generates a guide for guitar scales based on user input. The user can input the tuning of their guitar's six strings and the key of the scale they want to generate. The app then generates an image of the scale on the guitar neck and displays it to the user.
 

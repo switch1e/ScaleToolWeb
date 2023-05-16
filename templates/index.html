@@ -17,112 +17,123 @@
     <form action="/generate_image" method="POST">
         <label for="string1">Tuning:</label>
         <select id="string6" name="string6">
-            <option value="A">A</option>
-            <option value="A#">A#</option>
-            <option value="B">B</option>
-            <option value="C">C</option>
-            <option value="C#">C#</option>
-            <option value="D">D</option>
-            <option value="D#">D#</option>
-            <option value="E" selected>E</option>
-            <option value="F">F</option>
-            <option value="F#">F#</option>
-            <option value="G">G</option>
-            <option value="G#">G#</option>
-        </select>
+            <option value="A" {% if request.form['string6'] == 'A' %}selected{% endif %}>A</option>
+            <option value="A#" {% if request.form['string6'] == 'A#' %}selected{% endif %}>A#</option>
+            <option value="B" {% if request.form['string6'] == 'B' %}selected{% endif %}>B</option>
+            <option value="C" {% if request.form['string6'] == 'C' %}selected{% endif %}>C</option>
+            <option value="C#" {% if request.form['string6'] == 'C#' %}selected{% endif %}>C#</option>
+            <option value="D" {% if request.form['string6'] == 'D' %}selected{% endif %}>D</option>
+            <option value="D#" {% if request.form['string6'] == 'D#' %}selected{% endif %}>D#</option>
+            <option value="E" {% if not request.form or request.form['string6'] == 'E' %}selected{% endif %}>E</option>
+            <option value="F" {% if request.form['string6'] == 'F' %}selected{% endif %}>F</option>
+            <option value="F#" {% if request.form['string6'] == 'F#' %}selected{% endif %}>F#</option>
+            <option value="G" {% if request.form['string6'] == 'G' %}selected{% endif %}>G</option>
+            <option value="G#" {% if request.form['string6'] == 'G#' %}selected{% endif %}>G#</option>
+        </select>        
         <select id="string5" name="string5">
-            <option value="A" selected>A</option>
-            <option value="A#">A#</option>
-            <option value="B">B</option>
-            <option value="C">C</option>
-            <option value="C#">C#</option>
-            <option value="D">D</option>
-            <option value="D#">D#</option>
-            <option value="E">E</option>
-            <option value="F">F</option>
-            <option value="F#">F#</option>
-            <option value="G">G</option>
-            <option value="G#">G#</option>
-        </select>
+            <option value="A" {% if not request.form or request.form['string5'] == 'A' %}selected{% endif %}>A</option>
+            <option value="A#" {% if request.form['string5'] == 'A#' %}selected{% endif %}>A#</option>
+            <option value="B" {% if request.form['string5'] == 'B' %}selected{% endif %}>B</option>
+            <option value="C" {% if request.form['string5'] == 'C' %}selected{% endif %}>C</option>
+            <option value="C#" {% if request.form['string5'] == 'C#' %}selected{% endif %}>C#</option>
+            <option value="D" {% if request.form['string5'] == 'D' %}selected{% endif %}>D</option>
+            <option value="D#" {% if request.form['string5'] == 'D#' %}selected{% endif %}>D#</option>
+            <option value="E" {% if request.form['string5'] == 'E' %}selected{% endif %}>E</option>
+            <option value="F" {% if request.form['string5'] == 'F' %}selected{% endif %}>F</option>
+            <option value="F#" {% if request.form['string5'] == 'F#' %}selected{% endif %}>F#</option>
+            <option value="G" {% if request.form['string5'] == 'G' %}selected{% endif %}>G</option>
+            <option value="G#" {% if request.form['string5'] == 'G#' %}selected{% endif %}>G#</option>
+        </select>        
         <select id="string4" name="string4">
-            <option value="A">A</option>
-            <option value="A#">A#</option>
-            <option value="B">B</option>
-            <option value="C">C</option>
-            <option value="C#">C#</option>
-            <option value="D" selected>D</option>
-            <option value="D#">D#</option>
-            <option value="E">E</option>
-            <option value="F">F</option>
-            <option value="F#">F#</option>
-            <option value="G">G</option>
-            <option value="G#">G#</option>
-        </select>
+            <option value="A" {% if request.form['string4'] == 'A' %}selected{% endif %}>A</option>
+            <option value="A#" {% if request.form['string4'] == 'A#' %}selected{% endif %}>A#</option>
+            <option value="B" {% if request.form['string4'] == 'B' %}selected{% endif %}>B</option>
+            <option value="C" {% if request.form['string4'] == 'C' %}selected{% endif %}>C</option>
+            <option value="C#" {% if request.form['string4'] == 'C#' %}selected{% endif %}>C#</option>
+            <option value="D" {% if not request.form or request.form['string4'] == 'D' %}selected{% endif %}>D</option>
+            <option value="D#" {% if request.form['string4'] == 'D#' %}selected{% endif %}>D#</option>
+            <option value="E" {% if request.form['string4'] == 'E' %}selected{% endif %}>E</option>
+            <option value="F" {% if request.form['string4'] == 'F' %}selected{% endif %}>F</option>
+            <option value="F#" {% if request.form['string4'] == 'F#' %}selected{% endif %}>F#</option>
+            <option value="G" {% if request.form['string4'] == 'G' %}selected{% endif %}>G</option>
+            <option value="G#" {% if request.form['string4'] == 'G#' %}selected{% endif %}>G#</option>
+        </select>        
         <select id="string3" name="string3">
-            <option value="A">A</option>
-            <option value="A#">A#</option>
-            <option value="B">B</option>
-            <option value="C">C</option>
-            <option value="C#">C#</option>
-            <option value="D">D</option>
-            <option value="D#">D#</option>
-            <option value="E">E</option>
-            <option value="F">F</option>
-            <option value="F#">F#</option>
-            <option value="G" selected>G</option>
-            <option value="G#">G#</option>
-        </select>     
+            <option value="A" {% if request.form['string3'] == 'A' %}selected{% endif %}>A</option>
+            <option value="A#" {% if request.form['string3'] == 'A#' %}selected{% endif %}>A#</option>
+            <option value="B" {% if request.form['string3'] == 'B' %}selected{% endif %}>B</option>
+            <option value="C" {% if request.form['string3'] == 'C' %}selected{% endif %}>C</option>
+            <option value="C#" {% if request.form['string3'] == 'C#' %}selected{% endif %}>C#</option>
+            <option value="D" {% if request.form['string3'] == 'D' %}selected{% endif %}>D</option>
+            <option value="D#" {% if request.form['string3'] == 'D#' %}selected{% endif %}>D#</option>
+            <option value="E" {% if request.form['string3'] == 'E' %}selected{% endif %}>E</option>
+            <option value="F" {% if request.form['string3'] == 'F' %}selected{% endif %}>F</option>
+            <option value="F#" {% if request.form['string3'] == 'F#' %}selected{% endif %}>F#</option>
+            <option value="G" {% if not request.form or request.form['string3'] == 'G' %}selected{% endif %}>G</option>
+            <option value="G#" {% if request.form['string3'] == 'G#' %}selected{% endif %}>G#</option>
+        </select>
         <select id="string2" name="string2">
-            <option value="A">A</option>
-            <option value="A#">A#</option>
-            <option value="B" selected>B</option>
-            <option value="C">C</option>
-            <option value="C#">C#</option>
-            <option value="D">D</option>
-            <option value="D#">D#</option>
-            <option value="E">E</option>
-            <option value="F">F</option>
-            <option value="F#">F#</option>
-            <option value="G">G</option>
-            <option value="G#">G#</option>
-        </select>    
+            <option value="A" {% if request.form['string2'] == 'A' %}selected{% endif %}>A</option>
+            <option value="A#" {% if request.form['string2'] == 'A#' %}selected{% endif %}>A#</option>
+            <option value="B" {% if not request.form or request.form['string2'] == 'B' %}selected{% endif %}>B</option>
+            <option value="C" {% if request.form['string2'] == 'C' %}selected{% endif %}>C</option>
+            <option value="C#" {% if request.form['string2'] == 'C#' %}selected{% endif %}>C#</option>
+            <option value="D" {% if request.form['string2'] == 'D' %}selected{% endif %}>D</option>
+            <option value="D#" {% if request.form['string2'] == 'D#' %}selected{% endif %}>D#</option>
+            <option value="E" {% if request.form['string2'] == 'E' %}selected{% endif %}>E</option>
+            <option value="F" {% if request.form['string2'] == 'F' %}selected{% endif %}>F</option>
+            <option value="F#" {% if request.form['string2'] == 'F#' %}selected{% endif %}>F#</option>
+            <option value="G" {% if request.form['string2'] == 'G' %}selected{% endif %}>G</option>
+            <option value="G#" {% if request.form['string2'] == 'G#' %}selected{% endif %}>G#</option>
+        </select>
         <select id="string1" name="string1">
-            <option value="A">A</option>
-            <option value="A#">A#</option>
-            <option value="B">B</option>
-            <option value="C">C</option>
-            <option value="C#">C#</option>
-            <option value="D">D</option>
-            <option value="D#">D#</option>
-            <option value="E" selected>E</option>
-            <option value="F">F</option>
-            <option value="F#">F#</option>
-            <option value="G">G</option>
-            <option value="G#">G#</option>
-        </select>    
+            <option value="A" {% if request.form['string1'] == 'A' %}selected{% endif %}>A</option>
+            <option value="A#" {% if request.form['string1'] == 'A#' %}selected{% endif %}>A#</option>
+            <option value="B" {% if request.form['string1'] == 'B' %}selected{% endif %}>B</option>
+            <option value="C" {% if request.form['string1'] == 'C' %}selected{% endif %}>C</option>
+            <option value="C#" {% if request.form['string1'] == 'C#' %}selected{% endif %}>C#</option>
+            <option value="D" {% if request.form['string1'] == 'D' %}selected{% endif %}>D</option>
+            <option value="D#" {% if request.form['string1'] == 'D#' %}selected{% endif %}>D#</option>
+            <option value="E" {% if not request.form or request.form['string1'] == 'E' %}selected{% endif %}>E</option>
+            <option value="F" {% if request.form['string1'] == 'F' %}selected{% endif %}>F</option>
+            <option value="F#" {% if request.form['string1'] == 'F#' %}selected{% endif %}>F#</option>
+            <option value="G" {% if request.form['string1'] == 'G' %}selected{% endif %}>G</option>
+            <option value="G#" {% if request.form['string1'] == 'G#' %}selected{% endif %}>G#</option>
+        </select>
         <br>
-        <label for="key">Key:</label>
-        <select id="key" name="key">
-            <option value="A">A Major/F# Minor</option>
-            <option value="A#">Bb Major/G Minor</option>
-            <option value="B">B Major/G# Minor</option>
-            <option value="C">C Major/A Minor</option>
-            <option value="C#">C# Major/A# Minor</option>
-            <option value="D">D Major/B Minor</option>
-            <option value="D#">Eb Major/C Minor</option>
-            <option value="E">E Major/C# Minor</option>
-            <option value="F">F Major/D Minor</option>
-            <option value="F#">Gb Major/D# Minor</option>
-            <option value="G">G Major/E Minor</option>
-            <option value="G#">Ab Major/F Minor</option>
+        <label for="key-center">Scale:</label>
+        <select id="key-center" name="key-center">
+            <option value="A" {% if request.form['key-center'] == 'A' %}selected{% endif %}>A</option>
+            <option value="A#" {% if request.form['key-center'] == 'A#' %}selected{% endif %}>A#/Bb</option>
+            <option value="B" {% if request.form['key-center'] == 'B' %}selected{% endif %}>B</option>
+            <option value="C" {% if not request.form or request.form['key-center'] == 'C' %}selected{% endif %}>C</option>
+            <option value="C#" {% if request.form['key-center'] == 'C#' %}selected{% endif %}>C#/Db</option>
+            <option value="D" {% if request.form['key-center'] == 'D' %}selected{% endif %}>D</option>
+            <option value="D#" {% if request.form['key-center'] == 'D#' %}selected{% endif %}>D#/Eb</option>
+            <option value="E" {% if request.form['key-center'] == 'E' %}selected{% endif %}>E</option>
+            <option value="F" {% if request.form['key-center'] == 'F' %}selected{% endif %}>F</option>
+            <option value="F#" {% if request.form['key-center'] == 'F#' %}selected{% endif %}>F#/Gb</option>
+            <option value="G" {% if request.form['key-center'] == 'G' %}selected{% endif %}>G</option>
+            <option value="G#" {% if request.form['key-center'] == 'G#' %}selected{% endif %}>G#/Ab</option>
+        </select>
+        <label for="scale-name"></label>
+        <select id="scale-name" name="scale-name">
+            <option value="Major" {% if not request.form or request.form['scale-name'] == 'Major' %}selected{% endif %}>Major</option>
+            <option value="Minor" {% if request.form['scale-name'] == 'Minor' %}selected{% endif %}>Minor</option>
+            <option value="Minor Pentatonic" {% if request.form['scale-name'] == 'Minor Pentatonic' %}selected{% endif %}>Minor Pentatonic</option>
+            <option value="Major Pentatonic" {% if request.form['scale-name'] == 'Major Pentatonic' %}selected{% endif %}>Major Pentatonic</option>
+            <option value="Harmonic Minor" {% if request.form['scale-name'] == 'Harmonic Minor' %}selected{% endif %}>Harmonic Minor</option>
         </select>
         <br>
         <input type="submit" value="Generate Image">
     </form>
-    <div id="output-image">
+    <div id="output-image" class="responsive-image">
         {% if image_data %}
             <img src="data:image/png;base64,{{ image_data }}" />
         {% endif %}
+    </div>    
+    <div class="github-link">
+        <a href="https://github.com">github</a>
     </div>
 </body>
 </html>

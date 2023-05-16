@@ -1,11 +1,6 @@
 notes = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#']
 from guitar import *
-from PIL import Image, ImageFont, ImageDraw 
-
-def main():
-    tuning = prompt_tuning()
-    key = prompt_key()
-    
+from PIL import Image, ImageFont, ImageDraw
 
 terms = [
      1.9077733860358759e+001,
@@ -14,10 +9,11 @@ terms = [
      3.2981806170195319e-002
 ]
 
-def generate_scale(tuning, key):
-    title_text = key + " Major Scale in " + ''.join(tuning)
+def generate_scale_image(tuning, key_center, scale_name):
+    title_text = key_center + " " + scale_name + " in " + ''.join(tuning)
     tuning.reverse()
 
+    # Defining Fonts
     font_large = ImageFont.truetype("Font\PlayfairDisplay-Medium.ttf", 45)
     font_small = ImageFont.truetype("Font\PlayfairDisplay-Medium.ttf", 29)
     fret_image = Image.open("Images/guitar_fret.png")
@@ -26,27 +22,27 @@ def generate_scale(tuning, key):
     tuning.reverse()
     # print(header)
     for t in range(len(tuning)):
-        g = Guitar_String(tuning[t], key)
-        scale = g.build_scale()
-        if(tuning[t] in scale):
+        g = Guitar_String(tuning[t], key_center, scale_name)
+        sc = g.scale
+        if(tuning[t] in sc):
             output.text((53, 300 - (29*t)), tuning[t], (0, 0, 0), font= font_small)
         else:
             output.text((53, 300 - (29*t)), "X", (0, 0, 0), font= font_small)
         starting_note_index = notes.index(g.open_note)
         for x in range (1, 25):
             current_note = notes[(x + starting_note_index) % len(notes)]
-            if current_note in scale:
+            if current_note in sc:
                 note_mark = Image.open("Images\\" + "".join(current_note) + ".png")
                 fret_image.paste(note_mark, (round(regress(x)), 306 - (29 * t)), mask=note_mark)
                 # fret_image.paste(note_mark, (1478 , 306 - (29 * t)), mask=note_mark)
 
     return fret_image
 
-# def prompt_key():
-#     key = input("Insert your desired major key: ").capitalize()
-#     if key not in notes:
-#         raise Exception("This is not a valid key.")
-#     return key
+# def prompt_key_center():
+#     key_center = input("Insert your desired major key_center: ").capitalize()
+#     if key_center not in notes:
+#         raise Exception("This is not a valid key_center.")
+#     return key_center
 
 # def prompt_tuning():
 #     print("Insert your desired tuning starting from the lowest string. Accidental notes should be typed with a '#'.")

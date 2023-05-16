@@ -19,12 +19,13 @@ def generate_image():
     string3 = request.form.get('string3')
     string2 = request.form.get('string2')
     string1 = request.form.get('string1')
-    key = request.form.get('key')
+    key_center = request.form.get('key-center')
+    scale_name = request.form.get('scale-name')
 
     tuning = [string6, string5, string4, string3, string2, string1]
     
     # Generate the image based on the selected options
-    output = generate_scale(tuning, key)
+    output = generate_scale_image(tuning, key_center, scale_name)
 
 
     # image_path = f'Images/{tuning}_{key}maj.png'

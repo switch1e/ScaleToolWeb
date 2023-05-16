@@ -1,6 +1,6 @@
 notes = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#']
 from guitar import *
-from PIL import Image, ImageFont, ImageDraw
+from PIL import Image, ImageFont, ImageDraw, ImageChops
 
 terms = [
      1.9077733860358759e+001,
@@ -33,6 +33,8 @@ def generate_scale_image(tuning, key_center, scale_name):
             current_note = notes[(x + starting_note_index) % len(notes)]
             if current_note in sc:
                 note_mark = Image.open("Images\\" + "".join(current_note) + ".png")
+                if current_note == key_center:
+                    note_mark = invert_color(note_mark)
                 fret_image.paste(note_mark, (round(regress(x)), 306 - (29 * t)), mask=note_mark)
                 # fret_image.paste(note_mark, (1478 , 306 - (29 * t)), mask=note_mark)
 
@@ -55,10 +57,24 @@ def generate_scale_image(tuning, key_center, scale_name):
         
     
 def regress(x):
-  t = 1
-  r = 0
-  for c in terms:
-    r += c * t
-    t *= x
-  return r
+    t = 1
+    r = 0
+    for c in terms:
+        r += c * t
+        t *= x
+    return r
+
+def invert_color(img):
+    red_channel, green_channel, blue_channel, alpha_channel = img.split()
+    
+    # Invert the color channels
+    inverted_red_channel = red_channel.point(lambda p: 255 - p)
+    inverted_green_channel = green_channel.point(lambda p: 255 - p)
+    inverted_blue_channel = blue_channel.point(lambda p: 255 - p)
+    
+    # Combine the inverted color channels with the original alpha channel
+    img = Image.merge("RGBA", (inverted_red_channel, inverted_green_channel, inverted_blue_channel, alpha_channel))
+
+    return img                          
+    
 

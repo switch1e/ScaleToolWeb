@@ -120,10 +120,16 @@
         <select id="scale-name" name="scale-name">
             <option value="Major" {% if not request.form or request.form['scale-name'] == 'Major' %}selected{% endif %}>Major</option>
             <option value="Minor" {% if request.form['scale-name'] == 'Minor' %}selected{% endif %}>Minor</option>
+            <option value="Dorian" {% if request.form['scale-name'] == 'Dorian' %}selected{% endif %}>Dorian</option>
             <option value="Minor Pentatonic" {% if request.form['scale-name'] == 'Minor Pentatonic' %}selected{% endif %}>Minor Pentatonic</option>
             <option value="Major Pentatonic" {% if request.form['scale-name'] == 'Major Pentatonic' %}selected{% endif %}>Major Pentatonic</option>
             <option value="Harmonic Minor" {% if request.form['scale-name'] == 'Harmonic Minor' %}selected{% endif %}>Harmonic Minor</option>
+            <option value="Phrygian" {% if request.form['scale-name'] == 'Phrygian' %}selected{% endif %}>Phrygian</option>
+            <option value="Lydian" {% if request.form['scale-name'] == 'Lydian' %}selected{% endif %}>Lydian</option>
+            <option value="Mixolydian" {% if request.form['scale-name'] == 'Mixolydian' %}selected{% endif %}>Mixolydian</option>
+            <option value="Locrian" {% if request.form['scale-name'] == 'Locrian' %}selected{% endif %}>Locrian</option>
         </select>
+        
         <br>
         <input type="submit" value="Generate Image">
     </form>

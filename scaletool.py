@@ -60,7 +60,18 @@ def build_scale(key_center, scale_name):
 
 def generate_scale_image(tuning, key_center, scale_name):
     # Create the title text for the image
-    title_text = key_center + " " + scale_name + " in " + ''.join(tuning)
+    if key_center not in ['A#', 'C#', 'D#', 'F#', 'G#']:
+        title_text = key_center + " " + scale_name + " in " + ''.join(tuning)
+    elif key_center == 'A#':
+        title_text = "A#/Bb" + " " + scale_name + " in " + ''.join(tuning)
+    elif key_center == 'C#':
+        title_text = "C#/Db" + " " + scale_name + " in " + ''.join(tuning)
+    elif key_center == 'D#':
+        title_text = "D#/Eb" + " " + scale_name + " in " + ''.join(tuning)
+    elif key_center == 'F#':
+        title_text = "F#/Gb" + " " + scale_name + " in " + ''.join(tuning)
+    elif key_center == 'G#':
+        title_text = "G#/Ab" + " " + scale_name + " in " + ''.join(tuning)
     tuning.reverse()
 
     # Defining Fonts

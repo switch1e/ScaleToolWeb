@@ -38,20 +38,5 @@ def generate_image():
     # Render the index.html template with the image data
     return render_template('index.html', image_data=image_data)
 
-
-# @app.route('/?tuning=<tuning>?key=<key>', methods=['POST'])
-# def generate_image_HTTP(tuning, key):    
-#     # Generate the image based on the selected options
-#     # Replace this with your own image generation code
-#     output = generate_scale(list(tuning), key)
-
-
-#     image_path = f'Images/{tuning}_{key}maj.png'
-#     output.save(image_path)
-    
-#     # Return the image file
-#     return send_file(image_path, mimetype='image/png')
-
-
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)

@@ -3,3 +3,9 @@ venv/
 
 # Ignore Python bytecode
 __pycache__/
+
+Lib/
+
+Scripts/
+
+pyvenv.cfg

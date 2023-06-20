@@ -1,6 +1,8 @@
 notes = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#']
 from guitar import *
 from PIL import Image, ImageFont, ImageDraw, ImageChops
+import os
+from flask import current_app
 
 # Coefficients for the regression formula
 terms = [
@@ -74,12 +76,21 @@ def generate_scale_image(tuning, key_center, scale_name):
         title_text = "G#/Ab" + " " + scale_name + " in " + ''.join(tuning)
     tuning.reverse()
 
-    # Defining Fonts
-    font_large = ImageFont.truetype("Font/PlayfairDisplay-Medium.ttf", 45)
-    font_small = ImageFont.truetype("Font/PlayfairDisplay-Medium.ttf", 29)
-    fret_image = Image.open("Images/guitar_fret.png")
+    # Get the absolute path to the font file
+    font_path = os.path.join(current_app.root_path, "Font", "PlayfairDisplay-Medium.ttf")
+
+    # Get the absolute path to the guitar fret image
+    image_path = os.path.join(current_app.root_path, "Images", "guitar_fret.png")
+
+    # Load the fonts using the absolute file paths
+    font_large = ImageFont.truetype(font_path, 45)
+    font_small = ImageFont.truetype(font_path, 29)
+
+    # Load the guitar fret image using the absolute file path
+    fret_image = Image.open(image_path)
+
+    # Perform further operations on the image
     output = ImageDraw.Draw(fret_image)
-    
     # Draw the title on the image
     output.text((800, 108), title_text, (0, 0, 0), anchor="mb", font=font_large)
     
@@ -103,15 +114,18 @@ def generate_scale_image(tuning, key_center, scale_name):
         # Iterate over each fret position
         for x in range(1, 25):
             current_note = notes[(x + starting_note_index) % len(notes)]
-            
+
             # Draw the note mark on the fretboard image if it's in the scale
             if current_note in sc:
-                note_mark = Image.open("Images/" + "".join(current_note) + ".png")
-                
+                note_filename = "".join(current_note) + ".png"
+                note_path = os.path.join(current_app.root_path, "Images", note_filename)
+
+                note_mark = Image.open(note_path)
+
                 # Invert the color of the note mark if it matches the key center
                 if current_note == key_center:
                     note_mark = invert_color(note_mark)
-                
+
                 fret_image.paste(note_mark, (round(regress(x)), 306 - (29 * t)), mask=note_mark)
 
     return fret_image
